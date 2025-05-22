@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Menu, LogOut, Home, Users, BookOpen, ListTodo, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  
   const userData = {
     name: "SUNG KENLEY SEAN TUUK",
     nim: "22024118",
@@ -16,6 +18,11 @@ const Dashboard = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const handleLogout = () => {
+    // In a real application, you would also clear any authentication tokens here
+    navigate("/");
   };
 
   return (
@@ -100,7 +107,7 @@ const Dashboard = () => {
             <Menu />
           </button>
           <div></div>
-          <button className="text-red-600">
+          <button className="text-red-600" onClick={handleLogout}>
             <LogOut />
           </button>
         </header>
