@@ -2,34 +2,44 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { User } from "lucide-react";
+import { UserPlus } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Index = () => {
+const SignUp = () => {
+  const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
   const { toast } = useToast();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!username || !password) {
+    if (!fullName || !username || !email || !password || !confirmPassword) {
       toast({
         title: "Error",
-        description: "Username dan password wajib diisi",
+        description: "Semua field wajib diisi",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Password dan konfirmasi password tidak cocok",
         variant: "destructive",
       });
       return;
     }
     
     toast({
-      title: "Login berhasil",
-      description: "Anda berhasil login",
+      title: "Registrasi berhasil",
+      description: "Akun anda berhasil dibuat",
     });
   };
 
@@ -39,24 +49,43 @@ const Index = () => {
         <div className="flex justify-center -mt-10">
           <Avatar className="h-20 w-20 bg-teal-500 text-white">
             <AvatarFallback>
-              <User className="h-10 w-10" />
+              <UserPlus className="h-10 w-10" />
             </AvatarFallback>
           </Avatar>
         </div>
         
         <CardHeader className="text-center pt-2">
-          <h2 className="text-xl font-medium">Portal Polindo</h2>
+          <h2 className="text-xl font-medium">Register Portal Polindo</h2>
         </CardHeader>
         
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignUp}>
           <CardContent>
             <div className="space-y-4">
+              <div className="space-y-2">
+                <Input
+                  id="fullName"
+                  placeholder="Nama Lengkap"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                />
+              </div>
+              
               <div className="space-y-2">
                 <Input
                   id="username"
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               
@@ -70,27 +99,14 @@ const Index = () => {
                 />
               </div>
               
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="remember" 
-                    checked={rememberMe}
-                    onCheckedChange={(checked) => setRememberMe(!!checked)}
-                  />
-                  <label
-                    htmlFor="remember"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                
-                <a
-                  href="#"
-                  className="text-sm text-teal-500 hover:text-teal-600"
-                >
-                  Forgot Password?
-                </a>
+              <div className="space-y-2">
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Konfirmasi Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
               </div>
             </div>
           </CardContent>
@@ -100,11 +116,11 @@ const Index = () => {
               type="submit" 
               className="w-full bg-teal-500 hover:bg-teal-600"
             >
-              Sign In
+              Sign Up
             </Button>
             
             <p className="text-xs text-center text-gray-600">
-              Don't have an account? <Link to="/signup" className="text-teal-500 hover:text-teal-600">Sign up here</Link>
+              Sudah punya akun? <Link to="/" className="text-teal-500 hover:text-teal-600">Login di sini</Link>
             </p>
           </CardFooter>
         </form>
@@ -113,4 +129,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default SignUp;
