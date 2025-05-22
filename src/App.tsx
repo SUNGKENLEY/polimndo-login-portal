@@ -7,6 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Pengguna from "./pages/Pengguna";
+import Studi from "./pages/Studi";
+import TOEFL from "./pages/TOEFL";
+import Perwalian from "./pages/Perwalian";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +25,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/pengguna" element={<Pengguna />} />
+          <Route path="/studi" element={<Studi />} />
+          <Route path="/toefl" element={<TOEFL />} />
+          <Route path="/perwalian" element={<Perwalian />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
