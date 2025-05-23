@@ -11,6 +11,8 @@ import Pengguna from "./pages/Pengguna";
 import Studi from "./pages/Studi";
 import TOEFL from "./pages/TOEFL";
 import Perwalian from "./pages/Perwalian";
+import FacultyDashboard from "./pages/FacultyDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/studi" element={<Studi />} />
           <Route path="/toefl" element={<TOEFL />} />
           <Route path="/perwalian" element={<Perwalian />} />
+          <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
