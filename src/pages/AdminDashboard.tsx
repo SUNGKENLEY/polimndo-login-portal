@@ -65,25 +65,25 @@ const AdminDashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/admin-dashboard" className="flex items-center px-4 py-3 hover:bg-purple-800">
+              <Link to="/user-management" className="flex items-center px-4 py-3 hover:bg-purple-800">
                 <Users className="h-5 w-5 mr-3" />
                 <span>Manajemen Pengguna</span>
               </Link>
             </li>
             <li>
-              <Link to="/admin-dashboard" className="flex items-center px-4 py-3 hover:bg-purple-800">
+              <Link to="/academic-db" className="flex items-center px-4 py-3 hover:bg-purple-800">
                 <Database className="h-5 w-5 mr-3" />
                 <span>Database Akademik</span>
               </Link>
             </li>
             <li>
-              <Link to="/admin-dashboard" className="flex items-center px-4 py-3 hover:bg-purple-800">
+              <Link to="/reports" className="flex items-center px-4 py-3 hover:bg-purple-800">
                 <FileText className="h-5 w-5 mr-3" />
                 <span>Laporan</span>
               </Link>
             </li>
             <li>
-              <Link to="/admin-dashboard" className="flex items-center px-4 py-3 hover:bg-purple-800">
+              <Link to="/system-settings" className="flex items-center px-4 py-3 hover:bg-purple-800">
                 <Settings className="h-5 w-5 mr-3" />
                 <span>Pengaturan Sistem</span>
               </Link>

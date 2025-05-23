@@ -1,12 +1,11 @@
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, Menu, LogOut, Home, Users, BookOpen, ListTodo, FileText } from "lucide-react";
+import { User, Menu, LogOut, Home, Users, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-const FacultyDashboard = () => {
+const FacultyTeaching = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   
@@ -59,7 +58,7 @@ const FacultyDashboard = () => {
         <nav className="py-4">
           <ul>
             <li>
-              <Link to="/faculty-dashboard" className="flex items-center px-4 py-3 bg-blue-700">
+              <Link to="/faculty-dashboard" className="flex items-center px-4 py-3 hover:bg-blue-700">
                 <Home className="h-5 w-5 mr-3" />
                 <span>Home</span>
               </Link>
@@ -71,20 +70,20 @@ const FacultyDashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/faculty-teaching" className="flex items-center px-4 py-3 hover:bg-blue-700">
+              <Link to="/faculty-teaching" className="flex items-center px-4 py-3 bg-blue-700">
                 <BookOpen className="h-5 w-5 mr-3" />
                 <span>Pengajaran</span>
               </Link>
             </li>
             <li>
               <Link to="/faculty-advisory" className="flex items-center px-4 py-3 hover:bg-blue-700">
-                <ListTodo className="h-5 w-5 mr-3" />
+                <Users className="h-5 w-5 mr-3" />
                 <span>Perwalian</span>
               </Link>
             </li>
             <li>
               <Link to="/faculty-research" className="flex items-center px-4 py-3 hover:bg-blue-700">
-                <FileText className="h-5 w-5 mr-3" />
+                <Users className="h-5 w-5 mr-3" />
                 <span>Penelitian</span>
               </Link>
             </li>
@@ -107,62 +106,37 @@ const FacultyDashboard = () => {
 
         {/* Main Content Area */}
         <main className="flex-1 p-6">
-          <h1 className="text-2xl font-semibold mb-6">Selamat Datang, <span className="text-blue-800">{userData.name}</span></h1>
+          <h1 className="text-2xl font-semibold mb-6">Pengajaran</h1>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Welcome Card */}
-            <Card className="shadow-sm">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-medium mb-2">Selamat datang di Portal Dosen.</h3>
-                <p className="text-gray-600 mb-4">
-                  Portal Dosen merupakan fasilitas yang disediakan bagi tenaga pengajar
-                  untuk mengelola kegiatan akademik dan pengajaran.
-                </p>
-                <p>
-                  Jika menemui permasalahan, silahkan klik <a href="#" className="text-blue-500 hover:underline">tautan ini</a>.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Academic Info Card */}
-            <Card className="shadow-sm">
-              <CardContent className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">Jadwal Mengajar</h3>
-                  <Button variant="default" className="bg-blue-500 hover:bg-blue-600">
-                    <span>Lihat Semua</span>
-                  </Button>
+          <Card className="shadow-sm">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-medium mb-4">Jadwal Mengajar</h3>
+              <div>
+                <h4 className="font-medium">Senin, 23 Mei 2025</h4>
+                <div className="mt-2 space-y-2">
+                  <p>
+                    <span className="font-medium">08:00 - 09:40</span> - Pemrograman Web (TI-2A)
+                  </p>
+                  <p>
+                    <span className="font-medium">10:00 - 11:40</span> - Basis Data (TI-3B)
+                  </p>
                 </div>
+              </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium">Senin, 23 Mei 2025</h4>
-                    <div className="mt-2 space-y-2">
-                      <p>
-                        <span className="font-medium">08:00 - 09:40</span> - Pemrograman Web (TI-2A)
-                      </p>
-                      <p>
-                        <span className="font-medium">10:00 - 11:40</span> - Basis Data (TI-3B)
-                      </p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-medium">Selasa, 24 Mei 2025</h4>
-                    <div className="mt-2 space-y-2">
-                      <p>
-                        <span className="font-medium">13:00 - 14:40</span> - Algoritma dan Pemrograman (TI-1C)
-                      </p>
-                    </div>
-                  </div>
+              <div className="mt-4">
+                <h4 className="font-medium">Selasa, 24 Mei 2025</h4>
+                <div className="mt-2 space-y-2">
+                  <p>
+                    <span className="font-medium">13:00 - 14:40</span> - Algoritma dan Pemrograman (TI-1C)
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
         </main>
       </div>
     </div>
   );
 };
 
-export default FacultyDashboard;
+export default FacultyTeaching;

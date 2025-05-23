@@ -15,6 +15,19 @@ import FacultyDashboard from "./pages/FacultyDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
+// Student routes
+import StudentAccount from "./pages/StudentAccount";
+
+// Faculty routes
+import FacultyProfile from "./pages/FacultyProfile";
+import FacultyTeaching from "./pages/FacultyTeaching";
+
+// Admin routes
+import UserManagement from "./pages/UserManagement";
+import AcademicDB from "./pages/AcademicDB";
+import Reports from "./pages/Reports";
+import SystemSettings from "./pages/SystemSettings";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,14 +39,28 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/signup" element={<SignUp />} />
+          
+          {/* Student Routes */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/pengguna" element={<Pengguna />} />
+          <Route path="/student-account" element={<StudentAccount />} />
           <Route path="/studi" element={<Studi />} />
           <Route path="/toefl" element={<TOEFL />} />
           <Route path="/perwalian" element={<Perwalian />} />
+          
+          {/* Faculty Routes */}
           <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
+          <Route path="/faculty-profile" element={<FacultyProfile />} />
+          <Route path="/faculty-teaching" element={<FacultyTeaching />} />
+          
+          {/* Admin Routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/user-management" element={<UserManagement />} />
+          <Route path="/academic-db" element={<AcademicDB />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/system-settings" element={<SystemSettings />} />
+          
+          {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

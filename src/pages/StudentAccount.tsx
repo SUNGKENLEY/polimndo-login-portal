@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Menu, LogOut, Home, Users, BookOpen, ListTodo, FileText } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Dashboard = () => {
+const StudentAccount = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   
@@ -21,7 +21,6 @@ const Dashboard = () => {
   };
   
   const handleLogout = () => {
-    // In a real application, you would also clear any authentication tokens here
     navigate("/");
   };
 
@@ -60,13 +59,13 @@ const Dashboard = () => {
         <nav className="py-4">
           <ul>
             <li>
-              <Link to="/dashboard" className="flex items-center px-4 py-3 bg-blue-700">
+              <Link to="/dashboard" className="flex items-center px-4 py-3 hover:bg-blue-700">
                 <Home className="h-5 w-5 mr-3" />
                 <span>Home</span>
               </Link>
             </li>
             <li>
-              <Link to="/student-account" className="flex items-center px-4 py-3 hover:bg-blue-700">
+              <Link to="/student-account" className="flex items-center px-4 py-3 bg-blue-700">
                 <Users className="h-5 w-5 mr-3" />
                 <span>Akun Saya</span>
               </Link>
@@ -78,7 +77,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard" className="flex items-center px-4 py-3 hover:bg-blue-700">
+              <Link to="/other" className="flex items-center px-4 py-3 hover:bg-blue-700">
                 <ListTodo className="h-5 w-5 mr-3" />
                 <span>Lainnya</span>
               </Link>
@@ -114,63 +113,64 @@ const Dashboard = () => {
 
         {/* Main Content Area */}
         <main className="flex-1 p-6">
-          <h1 className="text-2xl font-semibold mb-6">Selamat Datang, <span className="text-blue-800">{userData.name}</span></h1>
+          <h1 className="text-2xl font-semibold mb-6">Akun Saya</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Welcome Card */}
             <Card className="shadow-sm">
               <CardContent className="p-6">
-                <h3 className="text-lg font-medium mb-2">Selamat datang di Portal Akademik.</h3>
-                <p className="text-gray-600 mb-4">
-                  Portal Akademik merupakan fasilitas yang disediakan bagi civitas
-                  akademika untuk menerima informasi dengan lebih cepat melalui
-                  internet. Diharapkan civitas akademika mendapat manfaat dengan
-                  aplikasi ini. Selamat menikmati...
-                </p>
-                <p>
-                  Jika menemui permasalahan, silahkan klik <a href="#" className="text-blue-500 hover:underline">tautan ini</a>.
-                </p>
+                <h3 className="text-lg font-medium mb-4">Informasi Pengguna</h3>
+                <div className="space-y-4">
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Nama Lengkap</span>
+                    <span className="font-medium">{userData.name}</span>
+                  </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">NIM</span>
+                    <span className="font-medium">{userData.nim}</span>
+                  </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Program Studi</span>
+                    <span className="font-medium">Teknik Informatika</span>
+                  </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Fakultas</span>
+                    <span className="font-medium">Teknik</span>
+                  </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Angkatan</span>
+                    <span className="font-medium">2022</span>
+                  </div>
+                </div>
+                <Button className="mt-6 bg-blue-500 hover:bg-blue-600">
+                  Ubah Profil
+                </Button>
               </CardContent>
             </Card>
 
-            {/* Payment Info Card */}
             <Card className="shadow-sm">
               <CardContent className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">Tagihan UKT</h3>
-                  <Button variant="default" className="bg-blue-500 hover:bg-blue-600">
-                    <span>-</span>
-                  </Button>
-                </div>
-
+                <h3 className="text-lg font-medium mb-4">Pengaturan Akun</h3>
                 <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium">Periode: 2022/2023 Ganjil</h4>
-                    <div className="mt-2 space-y-2">
-                      <p>
-                        <span className="font-medium">Pilihan Pembayaran:</span> PELUNASAN (UKT SEMESTER 1)
-                      </p>
-                      <p>
-                        <span className="font-medium">Nomor VA:</span> 886671022101535 <span className="text-red-500">(Expired)</span> <span className="text-green-500">LUNAS</span>
-                      </p>
-                      <p>
-                        <span className="font-medium">Rp.</span> 4.900.000
-                      </p>
-                      <p>
-                        <span className="font-medium">Jatuh tempo:</span> 2022-07-30 23:59:59
-                      </p>
-                      <div className="mt-4">
-                        <p className="font-medium">Detail Pembayaran:</p>
-                        <p>Jumlah = Rp. 4.900.000</p>
-                        <p>Terbayar = Rp. 4.900.000</p>
-                        <p>Sisa = Rp. 0 <span className="text-green-500">(LUNAS)</span></p>
-                      </div>
-                    </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Email</span>
+                    <span className="font-medium">student@example.com</span>
                   </div>
-
-                  <div>
-                    <h4 className="font-medium">Periode: 2024/2025 Genap</h4>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Nomor Telepon</span>
+                    <span className="font-medium">+62 812-3456-7890</span>
                   </div>
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-sm text-gray-500">Alamat</span>
+                    <span className="font-medium">Jl. Contoh No. 123, Jakarta</span>
+                  </div>
+                </div>
+                <div className="mt-6 space-x-2">
+                  <Button className="bg-blue-500 hover:bg-blue-600">
+                    Ubah Password
+                  </Button>
+                  <Button variant="outline">
+                    Ubah Kontak
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -181,4 +181,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default StudentAccount;
