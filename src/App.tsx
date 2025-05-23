@@ -21,6 +21,8 @@ import StudentAccount from "./pages/StudentAccount";
 // Faculty routes
 import FacultyProfile from "./pages/FacultyProfile";
 import FacultyTeaching from "./pages/FacultyTeaching";
+import FacultyAdvisory from "./pages/FacultyAdvisory";
+import FacultyResearch from "./pages/FacultyResearch";
 
 // Admin routes
 import UserManagement from "./pages/UserManagement";
@@ -52,6 +54,8 @@ const App = () => (
           <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
           <Route path="/faculty-profile" element={<FacultyProfile />} />
           <Route path="/faculty-teaching" element={<FacultyTeaching />} />
+          <Route path="/faculty-advisory" element={<FacultyAdvisory />} />
+          <Route path="/faculty-research" element={<FacultyResearch />} />
           
           {/* Admin Routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
