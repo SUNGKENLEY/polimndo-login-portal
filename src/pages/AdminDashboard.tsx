@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, Menu, LogOut, Home, Users, Settings, Database, FileText, Shield } from "lucide-react";
+import { User, Menu, LogOut, Home, Users, Settings, Database, FileText, Shield, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
